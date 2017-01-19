@@ -1,18 +1,20 @@
 import requests
 while True:
-	command = input('command? ').strip() 
+	command = raw_input('command? ').strip() 
 	#input command
 	if command == 'Get':
-		response = requests.get('http://www.hangout.co.ke/')
+		response = requests.get('https://andela.com/')
 		if response.status_code != 200:
-    			raise ApiError('GET/concerts/ {}'.format(response.status_code))
+			#negate HTTP error code
+    			raise ApiError('GET/resources/ {}'.format(response.status_code))
 		for concert in response.json():
-    			print('{} {}'.format(concert['name'], concert['summary']))
+    			print('{} {}'.format(resource['name'], resource['summary']))
 	elif command =='POST':
 
-		concert = {"name": "", "description": "" }
+		resources = {"name": "", "description": "" }
 
-		response = requests.post('http://www.hangout.co.ke/', json=place)
+		response = requests.post('https://andela.com/', json=place)
 		if response.status_code != 201:
-    			raise ApiError('POST /concerts/ {}'.format(response.status_code))
-		print('Created concert.name: {}'.format(response.json()["id"]))
+			#negate request fulfilled
+    			raise ApiError('POST /resources/ {}'.format(response.status_code))
+		print('Created resource.name: {}'.format(response.json()["id"]))
