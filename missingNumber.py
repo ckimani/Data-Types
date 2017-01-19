@@ -7,7 +7,6 @@ def missingNumber(a, b):
   	c = list(a - b)
   else:
   	return 0
-  
   for items in c:
   	return items
   #Function call
