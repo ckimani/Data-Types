@@ -10,4 +10,5 @@ def missingNumber(a, b):
   
   for items in c:
   	return items
+  #Function call
 print missingNumber((1,2,3,4,5), (1,2,3,4))
